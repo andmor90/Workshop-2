@@ -1,7 +1,9 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         //test dodawania usera
-//        User user = new User();
+//        entity.User user = new entity.User();
 //        user.setEmail("andrzej@wp.pl");
 //        user.setUsername("andrzej");
 //        user.setPassword("123123");
@@ -11,14 +13,14 @@ public class Main {
 
         // test czytania i updatowania usera
 //        UserDao userDao = new UserDao();
-//        User user = new User();
+//        entity.User user = new entity.User();
 //
-//        System.out.println(userDao.read(8).id);
-//        System.out.println(userDao.read(8).email);
-//        System.out.println(userDao.read(8).username);
-//        System.out.println(userDao.read(8).password);
+//        System.out.println(userDao.read(11).id);
+//        System.out.println(userDao.read(11).email);
+//        System.out.println(userDao.read(11).username);
+//        System.out.println(userDao.read(11).password);
 //
-//        user.setId(userDao.read(8).id);
+//        user.setId(userDao.read(11).id);
 //        user.setEmail("andrzej_zmiana@wp.pl");
 //        user.setUsername("andrzej2");
 //        user.setPassword("password2");
@@ -26,14 +28,20 @@ public class Main {
 
         // test usuwania id
 //        UserDao userDao = new UserDao();
-//        userDao.delete(8);
+//        userDao.delete(11);
 
-
-        
-
-
-
-
+        //test findAll
+//        UserDao userDao = new UserDao();
+////        entity.User user = new entity.User();
+////        user.setUsername("user1234");
+////        user.setEmail("user1234@user.pl");
+////        user.setPassword("passworduser1234");
+////        userDao.create(user);
+//
+//        entity.User[] all = userDao.findAll();
+//        System.out.println(Arrays.toString(all));
+//        System.out.println(all[0].getUsername());
+//        System.out.println(all.length);
+//        System.out.println(all[1].getUsername());
     }
-
 }

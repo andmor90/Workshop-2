@@ -1,8 +1,10 @@
+package entity;
+
 public class User {
-    int id;
-    String email;
-    String username;
-    String password;
+    public int id;
+    public String email;
+    public String username;
+    public String password;
 
     public int getId() {
         return id;

@@ -1,4 +1,5 @@
-import java.net.ConnectException;
+import entity.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -66,20 +67,34 @@ public class UserDao {
         }
     }
 
-    public void delete(int userId){
-        try(Connection conn = DbUtil.connect()){
+    public void delete(int userId) {
+        try (Connection conn = DbUtil.connect()) {
             PreparedStatement statement = conn.prepareStatement(DELETE_USER_QUERY);
             statement.setInt(1, userId);
             statement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
-
     }
 
-
+    public User[] findAll() {
+        try (Connection conn = DbUtil.connect()) {
+            User[] usersTable = new User[0];
+            PreparedStatement statement = conn.prepareStatement(FIND_ALL_USERS_QUERY);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                usersTable = DbUtil.addToArray(user, usersTable);
+            }
+            return usersTable;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
